@@ -176,38 +176,38 @@ def links(inNodes,inLinks, inInter):
                 if i[9] == 'Mutualism':
                     interactionsScore = 2
                     countPositive += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 elif i[9] == 'Parasitism':
                     interactionsScore = 1
                     countNegative += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 elif i[9] == 'Commensalism':
                     interactionsScore = 2
                     countPositive += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 elif i[9] == 'Competition':
                     interactionsScore = 1
                     countNegative += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 elif i[9] == 'Neutralism':
                     interactionsScore = 0
                     countNoInteraction += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 elif i[9] == 'Amensalism':
                     interactionsScore = 1
                     countNegative += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 else:
-                    print i[9]
+                    print(i[9])
                     interactionsScore = 10
                     countSomethingsWrong += 1
-                    print i[1],j[4],i[2],j[5],i[9],interactionsScore
+                    print(i[1],j[4],i[2],j[5],i[9],interactionsScore)
 
                 new_line = j[0],j[1],j[4],j[5],j[6],j[7],j[2],j[3],i[9],interactionsScore
                 tempTableC.append(list(new_line))
@@ -216,35 +216,35 @@ def links(inNodes,inLinks, inInter):
                 if i[9] == 'Mutualism':
                     interactionsScore = 2
                     countPositive += 1
-                    print i[1],j[5],i[2],j[4],i[9],interactionsScore
+                    print(i[1],j[5],i[2],j[4],i[9],interactionsScore)
 
                 elif i[9] == 'Parasitism':
                     interactionsScore = 1
                     countNegative += 1
-                    print i[1],j[5],i[2],j[4],i[9],interactionsScore
+                    print(i[1],j[5],i[2],j[4],i[9],interactionsScore)
 
                 elif i[9] == 'Commensalism':
                     interactionsScore = 2
                     countPositive += 1
-                    print i[1],j[5],i[2],j[4],i[9],interactionsScore
+                    print(i[1],j[5],i[2],j[4],i[9],interactionsScore)
 
                 elif i[9] == 'Competition':
                     interactionsScore = 1
                     countNegative += 1
-                    print i[1],j[5],i[2],j[4],i[9],interactionsScore
+                    print(i[1],j[5],i[2],j[4],i[9],interactionsScore)
 
                 elif i[9] == 'Neutralism':
                     interactionsScore = 0
                     countNoInteraction += 1
-                    print i[1],j[5],i[2],j[4],i[9],interactionsScore
+                    print(i[1],j[5],i[2],j[4],i[9],interactionsScore)
 
                 elif i[9] == 'Amensalism':
                     interactionsScore = 1
                     countNegative += 1
-                    print i[1],j[5],i[2],j[4],i[9],interactionsScore
+                    print(i[1],j[5],i[2],j[4],i[9],interactionsScore)
 
                 else:
-                    print i[9]
+                    print(i[9])
                     interactionsScore = 10
                     countSomethingsWrong +=1
 
@@ -260,10 +260,10 @@ def links(inNodes,inLinks, inInter):
     cherrypy.log('We found %d No interactions' %countNoInteraction)
     cherrypy.log('There was something wrong with the interaction assignments %d times' %countSomethingsWrong)
 
-    print countPositive
-    print countNegative
-    print countNoInteraction
-    print countSomethingsWrong
+    print(countPositive)
+    print(countNegative)
+    print(countNoInteraction)
+    print(countSomethingsWrong)
 
 
     link_value = []

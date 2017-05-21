@@ -64,7 +64,7 @@ def listTaxId4ModelSEED(outputSimil,outputIDs):
     cleanBlastResultsFile = open(outputSimil,'w')
     ids4MSFile = open(outputIDs,'w')
 
-    print>>cleanBlastResultsFile, 'Row number', '\t', 'Query_Otu_ID','\t','Species_ID','\t' ,'Percent_ID'
+    print('Row number', '\t', 'Query_Otu_ID','\t','Species_ID','\t' ,'Percent_ID', file=cleanBlastResultsFile)
     
     ids4MS = []
     blastTable = []
@@ -88,7 +88,7 @@ def listTaxId4ModelSEED(outputSimil,outputIDs):
     counter = 0 
     
     for i in cleanBlastResultsTable:
-        print>>cleanBlastResultsFile, counter, '\t',i[0],'\t',i[1],'\t',i[2]
+        print(counter, '\t',i[0],'\t',i[1],'\t',i[2], file=cleanBlastResultsFile)
         counter += 1
 
     cleanBlastResultsFile.close()
@@ -99,11 +99,11 @@ def listTaxId4ModelSEED(outputSimil,outputIDs):
     blastResultsFile.close()
     
     for i in cleanIds4MS:
-        print>>ids4MSFile, i
+        print(i, file=ids4MSFile)
 
     cherrypy.log('The %s file was created. In total, we will reconstruct %d models in widget 3.' %(outputIDs,len(cleanIds4MS)))
     
     ids4MSFile.close()
 
 
-    print "Done."
+    print("Done.")

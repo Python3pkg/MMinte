@@ -32,12 +32,12 @@ def createAllPairs(modelFolder,outputFolder = '../tempFiles/pairsList.txt'):
 
     pairsListFile = open(outputFolder,'w')
 
-    print>>pairsListFile, 'OtuAGenomeID', 'OtuBGenomeID'
+    print('OtuAGenomeID', 'OtuBGenomeID', file=pairsListFile)
 
     counter = 0
 
     for c in itertools.combinations(listFiles,2):
-        print>>pairsListFile, c[0], c[1]
+        print(c[0], c[1], file=pairsListFile)
         counter += 1
 
     pairsListFile.close()
@@ -113,11 +113,11 @@ def createSubsetPairs(similFilePath,corrsFilePath):
 
     pairsListFile = open('../tempFiles/pairsList.txt','w')
 
-    print>>pairsListFile,'speciesA','speciesB'
+    print('speciesA','speciesB', file=pairsListFile)
 
     for item in tempTableC:
         line = item.split('X')
-        print>>pairsListFile,line[0], line[1]
+        print(line[0], line[1], file=pairsListFile)
 
     pairsListFile.close()
     cherrypy.log('We finished exporting the information about all pairwise combinations to the file %s'%pairsListFile)
@@ -350,9 +350,9 @@ def createCommunityModel(modelFileA, modelFileB, comFolder):
             model1 = cobra.io.load_json_model(modelFileA)
         else:
             cherrypy.log('We were not able to find a model. This is modelfileA %s' %modelFileA)
-            print "not able to find model %s" %modelFileA
+            print("not able to find model %s" %modelFileA)
     except Exception as e:
-        print e
+        print(e)
 
     cherrypy.log('%s loaded successfully' %model1.id)
 
@@ -368,7 +368,7 @@ def createCommunityModel(modelFileA, modelFileB, comFolder):
         model2 = cobra.io.load_json_model(modelFileB)
     else:
         cherrypy.log('We were not able to find a model. This is modelfileB %s' %modelFileB)
-        print "not able to find model %s" %modelFileB
+        print("not able to find model %s" %modelFileB)
         
     cherrypy.log('%s loaded successfully' %model2.id)
 
@@ -471,7 +471,7 @@ def allPairComModels(listOfPairs,modelFolder,comFolder):
         try:
             createCommunityModel(modelA,modelB,comFolder)
         except Exception as e:
-            print e
+            print(e)
     
     cherrypy.log('We finished creating the models for all pairs in your list.')
 

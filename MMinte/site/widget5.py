@@ -43,7 +43,7 @@ def calculateGR(diet,outputGRs, comFolder):
     growthRatesFile = open(outputGRs,'a')
     
     
-    print>>growthRatesFile, 'ModelName', '\t', 'ObjFuntionSpeciesA', '\t', 'ObjFunctionSpeceisB', '\t', 'GRSpeciesAFull','\t', 'GRSpeciesBFull','\t','GRASolo','\t','GRBSolo'
+    print('ModelName', '\t', 'ObjFuntionSpeciesA', '\t', 'ObjFunctionSpeceisB', '\t', 'GRSpeciesAFull','\t', 'GRSpeciesBFull','\t','GRASolo','\t','GRBSolo', file=growthRatesFile)
     
 
     # Create a list of all the models that will be analysed
@@ -66,7 +66,7 @@ def calculateGR(diet,outputGRs, comFolder):
 
 
         # Determine what the objective function is. It should be composed of two reactions, the biomass reactions for each of the species that compose the model. Store the biomass reactions in a new variable to be used later.
-        ObjKeys = modelFull.objective.keys()
+        ObjKeys = list(modelFull.objective.keys())
         idObjKeys = ObjKeys[0].id, ObjKeys[1].id
 
         cherrypy.log('The objective function of the full model, %s, contains the objective functions of the two models that make it up. They are %s.'%(allModels[item], idObjKeys))
@@ -264,7 +264,7 @@ def calculateGR(diet,outputGRs, comFolder):
         
 
 
-        print>> growthRatesFile, modelID, '\t', organisms[0], '\t', organisms[1], '\t', grAfull,'\t', grBfull,'\t',grAMinusB,'\t',grBMinusA
+        print(modelID, '\t', organisms[0], '\t', organisms[1], '\t', grAfull,'\t', grBfull,'\t',grAMinusB,'\t',grBMinusA, file=growthRatesFile)
 
     cherrypy.log('We finished calculating the growth rates of the species in isolation and when in the presence of another species and dumped the information to the file: %s' %growthRatesFile)
 

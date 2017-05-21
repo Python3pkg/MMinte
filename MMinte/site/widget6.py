@@ -18,7 +18,7 @@ def evaluateInteractions(inGRs, outInter):
 
     interactionsTableFile = open(outInter,'a')
     
-    print>> interactionsTableFile, 'Model','\t','GenomeIDSpeciesA', '\t','GenomeIDSpeciesB','\t','GRSpeciesAFull','\t','GRSpeciesBFull','\t','GRASolo','\t','GRBSolo','\t','PercentChangeRawA','\t','PercentChangeRawB','\t', 'TypeOfInteraction'
+    print('Model','\t','GenomeIDSpeciesA', '\t','GenomeIDSpeciesB','\t','GRSpeciesAFull','\t','GRSpeciesBFull','\t','GRASolo','\t','GRBSolo','\t','PercentChangeRawA','\t','PercentChangeRawB','\t', 'TypeOfInteraction', file=interactionsTableFile)
     
     next(grFile)
 
@@ -100,13 +100,13 @@ def evaluateInteractions(inGRs, outInter):
                 cherrypy.log('Attention! For model %s , an interaction was identified as Empty. Something is wrong!' %item[0])#todo print out to user
 
         except Exception as e:
-            print e
+            print(e)
 
         
 
         # Create the interactions table. See what the growth rates file looks like, and get the appropriate columns from there, and merge the information with the information in the file with the growth rates.
 
-        print>>interactionsTableFile, item,'\t', percentChangeRawA,'\t', percentChangeRawB, '\t', typeOfInteraction
+        print(item,'\t', percentChangeRawA,'\t', percentChangeRawB, '\t', typeOfInteraction, file=interactionsTableFile)
 
 
     # Report the counts for each interaction type.

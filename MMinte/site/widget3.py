@@ -16,7 +16,7 @@ def getModels(id, modelFolder, url='https://p3.theseed.org/services/ProbModelSEE
     '''
 
 
-    print id
+    print(id)
     import json
     import requests
     import time
@@ -68,11 +68,11 @@ def getModels(id, modelFolder, url='https://p3.theseed.org/services/ProbModelSEE
                 output = json.loads(response.text)['result'][0]
                 if jobid in output:
                     task = output[jobid]
-                    print task['status']
+                    print(task['status'])
                     cherrypy.log('The status of this job is %s' %task['status'])
                     if task['status'] == 'failed':
                         message = task['error'].split('\n')
-                        for line in message: print line
+                        for line in message: print(line)
                         raise Exception
                     elif task['status'] == 'completed':
                         done = True
@@ -82,7 +82,7 @@ def getModels(id, modelFolder, url='https://p3.theseed.org/services/ProbModelSEE
                 else:
                     raise Exception
 
-                print task
+                print(task)
 
     # Create the body of the request for the export_model() method.
     # When ModelSEED server is reliable we could switch back to this method.

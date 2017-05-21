@@ -91,7 +91,7 @@ def workingOTUs(uniqueOTUs,seqs, output):
             new_item = '>'+item+' '
             if line.startswith(new_item):
                 counter += 1
-                print>>reprOtusForAnalysis, line
+                print(line, file=reprOtusForAnalysis)
         
     reprOtusForAnalysis.close() 
 

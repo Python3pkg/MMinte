@@ -105,7 +105,7 @@ class Widget5(server.App):
     
         
         with open(outputGRs,'r') as myfile:
-            top = [next(myfile) for x in xrange(10)]
+            top = [next(myfile) for x in range(10)]
         
         for i in top:
             head.append('<br>')
